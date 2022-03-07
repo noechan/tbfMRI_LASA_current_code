@@ -1,7 +1,7 @@
 function SPM1_Realignment(subjects, varargin)
 %SPM1_REALIGNMENT This batch script analyses the LASA fMRI dataset
 
-% Copyright (c): Noelia Martïnez-Molina (noelia.martinez@upf.edu)
+% Copyright (c): Noelia Martinez-Molina (noelia.martinez@upf.edu)
 
 %--------------------------------------------------------------------------
 % Initialise inputs and pathnames
