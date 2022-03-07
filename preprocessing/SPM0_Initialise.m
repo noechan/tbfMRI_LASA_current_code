@@ -1,7 +1,7 @@
 function SPM0_Initialise(indir, outdir, names, varargin)
 %SPM0_INITIALISE
 
-%Copyright(c) 2022: Noelia Martínez-Molina (noelia.martinez@upf.edu)
+%Copyright(c) 2022: Noelia Martinez-Molina (noelia.martinez@upf.edu)
 
 %--------------------------------------------------------------------------
 % Initialise inputs
