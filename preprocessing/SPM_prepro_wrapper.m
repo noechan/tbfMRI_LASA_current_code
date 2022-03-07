@@ -9,6 +9,8 @@ function SPM_prepro_wrapper(subjects, outdir, varargin)
 %                    default = [1 4 6 7]
 %
 % CALLS SPM1_Realignment(), SPM2_Reorient(), SPM6_Normalize(), SPM7_Smoothing()
+
+%Copyright(c) 2022: Noelia Martínez-Molina (noelia.martinez@upf.edu)
 %------------------------------------------------------------------------
 
 
