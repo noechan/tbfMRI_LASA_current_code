@@ -1,7 +1,7 @@
 function SPM0_T1Coregistration(subjects, varargin)
 %SPM0_T1Coregistration
 
-% Copyright (c): Noelia Martínez-Molina (noelia.martinez@upf.edu)
+% Copyright (c) 2022: Noelia Martinez-Molina (noelia.martinez@upf.edu)
 
 %--------------------------------------------------------------------------
 % Initialise inputs and pathnames
