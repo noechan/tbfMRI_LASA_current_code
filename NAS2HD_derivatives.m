@@ -1,4 +1,5 @@
 %% Initialise inputs, pathnames 
+%test
 rawdir = '\\Neuro_NAS\homes\nomamoli\LASA_project\raw_data\';
 subjects = build_dataset(rawdir);
 outdir = 'G:\Aphasia_project\raw_data\';
