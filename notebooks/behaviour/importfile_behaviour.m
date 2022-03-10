@@ -10,7 +10,7 @@ function LASAbehavioural290921CVATBIfMRIfixed1 = importfile(filename, dataLines)
 %  positive scalar integers for dis-contiguous row intervals.
 %
 %  Example:
-%  LASAbehavioural290921CVATBIfMRIfixed1 = importfile("/Users/noeliamartinezmolina/Documents/GitHub/tbfMRI_LASA_current_code/notebooks/LASA_behavioural_290921_CVA_TBI_fMRI_fixed.csv", [1, Inf]);
+%  LASAbehavioural290921CVATBIfMRIfixed1 = importfile("/Volumes/LaCie/Aphasia_project/tb-fMRI/results/behaviour/LASA_behavioural_290921_CVA_TBI_fMRI_fixed.csv", [1, Inf]);
 %
 %  See also READTABLE.
 %
