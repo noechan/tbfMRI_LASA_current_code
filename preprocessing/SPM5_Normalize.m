@@ -6,7 +6,7 @@ function SPM5_Normalize(subjects, varargin)
 % Initialise inputs and pathnames
 p = inputParser;
 p.addRequired('subjects', @isstruct);
-p.addParameter('ses','ses-001', @ischar)
+p.addParameter('ses','ses-003', @ischar)
 p.addParameter('derdir', 'derivatives', @ischar)
 p.addParameter('prepdir', 'SPM_prepro', @ischar)
 p.addParameter('funcdir', 'func', @ischar)
@@ -59,31 +59,44 @@ for sbj =1:size(subjects, 1)
     for j=1:size(roEPI_uulaa)
         fname_roEPI_uulaa{j,1}=fullfile(sub_path,Arg.funcdir,Arg.norm,roEPI_uulaa(j).name);
     end
+
+roT1=dir (fullfile(sub_path,Arg.anatdir,'sub*_roT1w*.nii'));
+fname_roT1={fullfile(sub_path,Arg.anatdir,roT1.name)};
 matrix = spm_select('FPList', fullfile(sub_path, Arg.anatdir), 'seg_sn.*\.mat$');  
 
 
 %% Run Old normalise
     clear matlabbatch
+%     matlabbatch{1}.spm.spatial.normalise.write.subj.matname = {matrix};
+%     matlabbatch{1}.spm.spatial.normalise.write.subj.resample = fname_roEPI_tydyy;
+%     matlabbatch{1}.spm.spatial.normalise.write.roptions.preserve = 0;
+%     matlabbatch{1}.spm.spatial.normalise.write.roptions.bb =[-78 -112 -65 
+%                                                               78 76 85];
+%     matlabbatch{1}.spm.spatial.normalise.write.roptions.vox = [2 2 2];
+%     matlabbatch{1}.spm.spatial.normalise.write.roptions.interp = 1;
+%     matlabbatch{1}.spm.spatial.normalise.write.roptions.wrap = [0 0 0];
+%     matlabbatch{1}.spm.spatial.normalise.write.roptions.prefix = 'w';
+%     
+%     matlabbatch{2}.spm.spatial.normalise.write.subj.matname = {matrix};
+%     matlabbatch{2}.spm.spatial.normalise.write.subj.resample =fname_roEPI_uulaa;
+%     matlabbatch{2}.spm.spatial.normalise.write.roptions.preserve = 0;
+%     matlabbatch{2}.spm.spatial.normalise.write.roptions.bb =[-78 -112 -65 
+%                                                               78 76 85];
+%     matlabbatch{2}.spm.spatial.normalise.write.roptions.vox = [2 2 2];
+%     matlabbatch{2}.spm.spatial.normalise.write.roptions.interp = 1;
+%     matlabbatch{2}.spm.spatial.normalise.write.roptions.wrap = [0 0 0];
+%     matlabbatch{2}.spm.spatial.normalise.write.roptions.prefix = 'w';     
+  
     matlabbatch{1}.spm.spatial.normalise.write.subj.matname = {matrix};
-    matlabbatch{1}.spm.spatial.normalise.write.subj.resample = fname_roEPI_tydyy;
+    matlabbatch{1}.spm.spatial.normalise.write.subj.resample =fname_roT1;
     matlabbatch{1}.spm.spatial.normalise.write.roptions.preserve = 0;
     matlabbatch{1}.spm.spatial.normalise.write.roptions.bb =[-78 -112 -65 
                                                               78 76 85];
     matlabbatch{1}.spm.spatial.normalise.write.roptions.vox = [2 2 2];
     matlabbatch{1}.spm.spatial.normalise.write.roptions.interp = 1;
     matlabbatch{1}.spm.spatial.normalise.write.roptions.wrap = [0 0 0];
-    matlabbatch{1}.spm.spatial.normalise.write.roptions.prefix = 'w';
+    matlabbatch{1}.spm.spatial.normalise.write.roptions.prefix = 'w';  
     
-    matlabbatch{2}.spm.spatial.normalise.write.subj.matname = {matrix};
-    matlabbatch{2}.spm.spatial.normalise.write.subj.resample =fname_roEPI_uulaa;
-    matlabbatch{2}.spm.spatial.normalise.write.roptions.preserve = 0;
-    matlabbatch{2}.spm.spatial.normalise.write.roptions.bb =[-78 -112 -65 
-                                                              78 76 85];
-    matlabbatch{2}.spm.spatial.normalise.write.roptions.vox = [2 2 2];
-    matlabbatch{2}.spm.spatial.normalise.write.roptions.interp = 1;
-    matlabbatch{2}.spm.spatial.normalise.write.roptions.wrap = [0 0 0];
-    matlabbatch{2}.spm.spatial.normalise.write.roptions.prefix = 'w';     
-  
    spm_jobman('run', matlabbatch)
    
    %% Loop to remove raw_data from new per-subject folder

@@ -15,7 +15,7 @@ function SPM_prepro_wrapper(subjects, outdir, varargin)
 
 
 %% Initialise inputs
-pp = [6];
+pp = [5];
 p = inputParser;
 p.addRequired('subjects', @isstruct)
 p.addRequired('outdir', @ischar)
@@ -23,7 +23,7 @@ p.addRequired('outdir', @ischar)
 % TODO : MATCH BIDS SPECIFICATION FOR FILE STORAGE LOCATIONS
 p.addParameter('funcdir', 'func', @ischar)
 p.addParameter('anatdir', 'anat', @ischar)
-p.addParameter('ses','ses-001', @ischar)
+p.addParameter('ses','ses-003', @ischar)
 p.addParameter('derdir', 'derivatives', @ischar)
 p.addParameter('prepdir', 'SPM_prepro', @ischar)
 p.addParameter('prep_steps', pp, @(x) isnumeric(x) || iscellstr(x))

@@ -1,9 +1,9 @@
 % Copyright (c) 2022: Noelia Martinez (noelia.martinez@upf.edu)
 
 %% Initialise inputs, pathnames 
-rawdir = 'G:\Aphasia_project\data\raw_data';
+rawdir = '/Volumes/LASA/Aphasia_project/tb-fMRI/data/LASA/';
 subjects = build_dataset(rawdir);
-outdir = 'G:\Aphasia_project\data\raw_data';
+outdir = '/Volumes/LASA/Aphasia_project/tb-fMRI/data/LASA/';
 
 %% Build datasets for multiple sessions
 s1=1;s2=1;s3=1;
@@ -50,4 +50,4 @@ subjects_s1=subjects(Idx_s1); subjects_s2=subjects(Idx_s2); subjects_s3=subjects
 %sub4 ses-001 incomplete Tydyy task
    
 % Do preprocess
-SPM_prepro_wrapper(subjects_s1(24),outdir)
+SPM_prepro_wrapper(subjects_s2(1),outdir)
